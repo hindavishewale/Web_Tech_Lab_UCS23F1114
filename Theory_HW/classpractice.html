@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="fetch">fetch</button>
+    <div id="container"></div>
+    <script>
+        async function fetching()
+        {
+            let response=await fetch("https://jsonplaceholder.typicode.com/todos");
+            let data= await response.json();
+            let table1=document.createElement("table");
+            table1.border="1";
+            //console.log(data);
+            let hrow=document.createElement("tr");
+            let key=Object.keys(data[0]);
+
+            key.forEach((data1)=>{
+                let hdata=document.createElement("th");
+                //console.log(data1);
+                hdata.textContent=data1;
+                hrow.append(hdata);
+            })
+            table1.append(hrow);
+
+            
+            data.forEach((e)=>{
+                //console.log(e);
+                let row=document.createElement("tr");  
+            for(i in e)
+            {
+                let data2=document.createElement("td");
+                data2.textContent=e[i];
+                //console.log(e[i]);
+                row.append(data2);
+            }
+            table1.append(row);
+            })
+              document.getElementById("container").append(table1);
+        }
+
+        document.getElementById("fetch").addEventListener("click",()=>{
+           fetching(); 
+        })
+        
+    </script>
+</body>
+</html>

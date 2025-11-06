@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To do list</h1>
+    <label>Enter task: </label>
+    <input type="text" id="task">
+    <button id="btn">Add</button>
+    <br><br>
+    <table border="1">  
+        <tbody id="tablebody">
+        <th>Task</th>
+        <th>Action</th>
+        </tbody>
+    </table>
+
+    <script>       
+    document.getElementById("btn").addEventListener("click",function()
+    {
+        let val=document.getElementById("task").value;
+        let x=document.getElementById("tablebody");
+        //alert(x);
+        let row=document.createElement("tr");
+        let cell=document.createElement("td");
+        cell.textContent=val;
+        
+        let actioncell=document.createElement("td");
+        //let edit=document.createElement("button");
+        //edit.textContent="Edit";
+        let delet=document.createElement("button");
+        delet.textContent="Delete";
+        delet.onclick=function()
+        {
+            x.removeChild(row);
+        }
+
+        let edit=document.createElement("button");
+        edit.textContent="edit";
+        edit.onclick=function()
+        {
+            let newtask=prompt("edit task: ",cell.textContent);
+            if(newtask)
+        {
+            cell.textContent=newtask;
+        }
+        }
+
+        actioncell.append(edit);
+        actioncell.append(delet);
+        row.append(cell);
+        row.append(actioncell);
+        x.append(row);
+    })
+    </script>
+</body>
+</html>

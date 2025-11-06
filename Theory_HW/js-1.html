@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>   
+    
+        //function expresssion   
+        //let addition=function(a=0,b=0){return a+b;};
+        //let temp=addition(100,80);
+        //alert(temp);
+
+        //arrow function
+        //let sub=(x=0,y=0)=>{return x-y};
+        //let t=sub(56,78);
+        //alert(t);
+
+        //callback function
+
+
+        //javascript function
+        //1.simple function
+        function f1(age)
+        {
+        var age;
+        if(age>=18)
+        {
+            alert("your age is valid for voting..."+age);
+        }
+        else
+        {
+            alert("your age is not valid for  voting..."+age);
+        }
+        }
+        f1(23);
+        f1(16);
+
+        //2.function expression
+        let isage=function(age){if(age>=18){alert("your age is valid for voting..."+age);} else {alert("your age is not valid for  voting..."+age);}};
+        isage(14);
+        isage(23);
+
+        //3.arrow function
+        let isagee=(age)=>{if(age>=18){alert("your age is valid for voting..."+age);} else {alert("your age is not valid for  voting..."+age);}};
+        isagee(44);
+        isagee(12);
+
+
+        
+    </script>
+</body>
+</html>

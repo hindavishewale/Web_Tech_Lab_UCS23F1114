@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head">welcome</h1>
+    <h2 class="1">comp</h2>
+    <h3 class="1">hindavi</h3>
+    <h3 id="head">dewewf</h3>
+    <h3 class="1">deew</h3>
+    <h3 id="head">dd</h3>
+    
+</body>
+<script>
+    let x=document.getElementById("head");
+    //console.log(x.textContent);
+    //x.textContent="hiiii";
+
+    let a=document.getElementsByClassName("1");//return html collection similar to array
+    for(let i=0;i<a.length;i++)
+    {
+    console.log(a[i].textContent);
+    }
+
+    let t=document.getElementsByTagName("h3");//return html collection similar to array
+    for(let i=0;i<t.length;i++)
+    {
+    console.log(t[i].textContent);
+    }
+
+    let q1=document.querySelector("h3")
+    {
+        console.log(q1.textContent);
+    }
+    
+
+    let q=document.querySelectorAll("h3")//return node list
+    for(let i=0;i<q.length;i++)
+    {
+     console.log(q[i].textContent);
+    }
+
+</script>
+</html>

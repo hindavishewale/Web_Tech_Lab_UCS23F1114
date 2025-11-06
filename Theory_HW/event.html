@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="mainhead">WELCOME</h1>
+    <button id="btn1">submit</button>
+
+        <table border="1">
+        <tr>
+            <th>Student Id</th>
+            <th>Name</th>
+        </tr>
+        <tbody id="tablebody">
+
+        </tbody>
+    </table>
+
+
+    <script>
+    //document.querySelector("#btn1").addEventListener("click",function(e)
+    //{
+        //function fecthing data from back end
+        //let x=document.getElementById("mainhead");
+        //x.textContent="hello";
+        //x.style.backgroundColor="blue";
+        //x.style.color="red";
+        //alert(e.target.textContent);
+    //});//type of event,function:()=>alert("hiiiii")
+
+    document.querySelector("#btn1").addEventListener("click",function()
+{
+    let x=document.getElementById("tablebody");//body
+    let row=document.createElement("tr");//row   
+    let cell=document.createElement("td");//cell
+    cell.textContent=1;
+    row.append(cell);
+    cell=document.createElement("td");
+    cell.textContent="hindavi";
+    row.append(cell);
+    x.append(row);
+
+})
+    </script>
+</body>
+</html>

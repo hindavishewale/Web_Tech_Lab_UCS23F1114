@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function sum(a,b)
+        // {
+        //    console.log("addition is: ",a+b);
+        // }
+        // function calc(a,b,sum)
+        // {
+        //     sum(a,b);
+        // }
+        // calc(1,2,sum)
+
+        // function cal(a,b,sum)
+        // {
+        //     sum(a,b);
+        // }
+        // cal(1,2,(a,b)=>{
+        //     console.log(a+b);
+        // });
+       function getdata(dataId,getNextData)
+       {
+
+        setTimeout(()=>{
+            console.log("data :",dataId);
+            getNextData();
+        },2000);
+
+       }
+       //callback hell=nested callback
+       getdata(1,()=>{
+        getdata(2,()=>{
+            getdata(3,()=>{
+
+            })
+        })
+       })
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id="table">
+
+</div>
+<body>
+    <script>
+        function getdata()
+        {
+            let p=fetch("https://jsonplaceholder.typicode.com/todos");//return promise//successful-resolve internally
+            //console.log(p);
+            p.then((response)=>{
+                //console.log(response);
+                let x=response.json();
+                console.log(x);
+                x.then((result)=>{console.log(result);
+
+                // for(let i in result)
+                // {
+                //     //console.log(result[i]);
+                //     let d=result[i];
+                // }
+
+                let table="<table border=1>";
+                    table+=`<tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Completed</th>
+                        </tr>`;
+
+                result.forEach(element => {
+                    table+=
+                    `<tr>
+                        <th>${element.id}</th>
+                        <th>${element.title}</th>
+                        <th>${element.completed}</th>
+                    </tr>`
+                    
+                });
+
+                table+='</table>';
+
+                document.getElementById("table").innerHTML=table;
+
+
+                });
+                x.catch((error)=>{console.log(error)});
+                });
+            p.catch((error)=>{console.log(error)});           
+        }
+        getdata();
+    </script>
+</body>
+</html>

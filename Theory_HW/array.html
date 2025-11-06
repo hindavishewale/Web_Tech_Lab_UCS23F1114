@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<srip>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=[10,20,30,45,56,45];
+        let r=a.filter((x)=>x>=40)
+        for(let i=0;i<r.length;i++)
+        {
+        console.log(r[i]);
+        }
+        let s=a.map((x)=>x*x)
+        for(let i=0;i<s.length;i++)
+        {
+             console.log(s[i]);
+        }
+
+        let object={id:1,name:"hindavi",prn:"UCS23F114"};
+        console.log(object);
+
+        //let ar1=[10,20,30];
+        //let ar2=[40,50,60];
+        //[...ar1,...ar2];
+        //let ar3=ar1+ar2;
+        //console.log(ar3);
+
+        object.address="vaijapur";
+        console.log(object);
+        //console.log(object.id);
+        for(let k in object)
+        {
+            console.log(k);//keys
+            console.log(object[k]);//values 
+        }
+
+    </script>
+
+    
+
+
+</body>
+</html>

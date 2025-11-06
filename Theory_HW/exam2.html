@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            text-align: center; 
+        }
+        input,button
+        {
+            margin: 5px;
+            padding: 10px;
+        }
+        table
+        {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th,td
+        {
+            border:1px solid black;
+            padding:10px;
+        }
+        @media(max-width:600px)
+        {
+            input,button
+            {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="task" placeholder="enter task">
+    <button id="add">add</button>
+     <table>
+            <tr>
+                <th>Task</th>
+                <th>Action</th>
+            </tr>
+            <tbody id="table-body"></tbody>
+    </table>
+    <script>
+       
+        function adddata()
+        {
+            let task=document.getElementById("task").value;
+            let tablebody=document.getElementById("table-body");
+            
+            let row=document.createElement("tr");
+
+            let taskcell=document.createElement("td");
+            taskcell.textContent=task;
+            row.append(taskcell);
+
+            let actionCell=document.createElement("td");
+
+            let edbtn=document.createElement("button");
+            edbtn.textContent="Edit";
+            edbtn.onclick=()=>{
+                let newtask=prompt("enter new task",taskcell.textContent);
+                if(newtask)
+            {
+                taskcell.textContent=newtask;
+            }
+            }
+
+            let delbtn=document.createElement("button");
+            delbtn.textContent="Delete";
+            delbtn.onclick=()=>{
+                row.remove();
+            }
+
+            actionCell.append(edbtn);
+            actionCell.append(delbtn);
+            row.append(actionCell)
+            tablebody.append(row);
+
+        }
+        document.getElementById("add").addEventListener("click",adddata);
+    </script>
+</body>
+</html>

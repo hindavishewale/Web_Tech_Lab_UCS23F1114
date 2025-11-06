@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="container">
+
+
+    </div>
+    <script>
+
+        let arr=[{id:1,name:"abc",marks:90},{id:2,name:"x",marks:80}];
+
+        let key=Object.keys(arr[0]);
+        let table1=document.createElement("table");
+        let row1=document.createElement("tr");
+      
+        key.forEach((o)=>{
+            cell=document.createElement("th");
+            cell.textContent=o;
+            row1.append(cell);
+        });
+        table1.append(row1);
+
+        arr.forEach((o)=>{
+            row1=document.createElement("tr");
+            for(k in o)
+        {
+            cell=document.createElement("td");
+            cell.textContent=o[k];
+            row1.append(cell);
+        }
+        table1.append(row1);
+        });
+    
+        document.getElementById("container").append(table1);
+
+
+
+    </script>
+
+</body>
+</html>

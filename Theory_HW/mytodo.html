@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <style>
+    body {
+      text-align: center;
+    }
+    input, button {
+      padding: 6px;
+      margin: 5px;
+    }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px 12px;
+    }
+    @media(max-width:600px) {
+    table { font-size: 14px; }
+    input, button { width: 100%; }
+  }
+
+  </style>
+</head>
+<body>
+  <h2>Task Manager</h2>
+  <input type="text" id="task" placeholder="Enter your task">
+  <button id="submit">Add</button>
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Action</th>
+    </tr>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <script>
+    function addtask() {
+      let task = document.getElementById("task").value;
+
+      let tbody = document.getElementById("tbody");
+      let row = document.createElement("tr");
+
+      let taskCell = document.createElement("td");
+      taskCell.textContent = task;
+      row.append(taskCell);
+
+      let actionCell = document.createElement("td");
+
+      let delbtn = document.createElement("button");
+      delbtn.textContent = "Delete";
+      delbtn.onclick = () => row.remove();
+
+      let edbtn = document.createElement("button");
+      edbtn.textContent = "Update";
+      edbtn.onclick = () => {
+        let newtask = prompt("Enter new task", taskCell.textContent);
+      };
+
+      actionCell.append(edbtn, delbtn);
+      row.append(actionCell);
+
+      tbody.append(row);
+      
+    }
+
+    document.getElementById("submit").addEventListener("click", addtask);
+  </script>
+</body>
+</html>

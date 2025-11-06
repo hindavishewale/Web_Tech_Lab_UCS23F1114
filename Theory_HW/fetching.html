@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="get">GET</button>
+    <div id="mytable"></div>
+    <script>
+        async function getdata()
+        {
+            let response=await fetch("mydata.json");
+            let data=await response.json();
+            console.log(data);
+            let x=Object.keys(data[0]);
+            let table=document.createElement("table");
+            table.border='1';
+            let headerrow=document.createElement("tr");
+            for(let i=0;i<x.length;i++)
+                {
+                 let cell=document.createElement("th");
+                 cell.textContent=x[i];
+                 //console.log(cell);
+                 headerrow.append(cell);
+                }
+                table.append(headerrow);
+            
+            data.forEach((obj)=>{
+                let bodyrow=document.createElement("tr");
+                for(let item in obj)
+                {
+                let cell=document.createElement("th");
+                cell.textContent=obj[item];
+                //console.log(item);
+                bodyrow.append(cell);
+                }
+                 table.append(bodyrow);
+            })
+               document.getElementById("mytable").append(table);
+        }
+        document.getElementById("get").addEventListener("click",getdata);
+      
+    </script>
+</body>
+</html>

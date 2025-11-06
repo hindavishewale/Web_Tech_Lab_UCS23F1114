@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="container">
+    </div>
+    <script>
+        async function getdata()
+        {
+            try
+            {
+            let p1=await fetch("https://jsonplaceholder.typicode.com/todos");
+            //console.log(p1);
+            let p2= await p1.json();//return response //await usd when aysnc function is there
+            console.log(p2);//p2 contain array of objects
+            let table=document.createElement("table");
+            table.border="1";
+            let headerrow=document.createElement("tr");
+            let key=Object.keys(p2[0]);
+            //console.log(key);
+            key.forEach((e)=>{
+                let cell=document.createElement("th");
+                cell.textContent=e;
+                headerrow.append(cell);
+            });
+            table.append(headerrow);  
+
+            p2.forEach((e)=>{
+                let row=document.createElement("tr");
+                key.forEach((d)=>{
+                    let cell=document.createElement("td");
+                    cell.textContent=e[d];
+                    row.append(cell);
+                })
+                table.append(row);
+            })
+
+            document.getElementById("container").append(table);         
+            }
+            catch(e)
+            {
+                //console.log(e);
+            }         
+        }
+        getdata();
+       
+    </script>
+</body>
+</html>
