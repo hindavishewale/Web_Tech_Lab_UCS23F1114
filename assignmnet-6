@@ -1,0 +1,43 @@
+import React, { useState } from "react";
+
+function PropsandState() {
+  // using state
+  let [num1, setNum1] = useState(0);
+  let [num2, setNum2] = useState(0);
+  let [r, setResult] = useState(0);
+
+  // function to add numbers
+  let sumnum = () => {
+    setResult(Number(num1) + Number(num2));
+  };
+
+  // child-like component using props
+  const Result = (props) => {
+    return <h3>Result: {props.value}</h3>;
+  };
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Calculator</h1>
+
+      <input
+        type="number"
+        value={num1}
+        onChange={(e) => setNum1(e.target.value)}
+      /><br /><br />
+
+      <input
+        type="number"
+        value={num2}
+        onChange={(e) => setNum2(e.target.value)}
+      /><br /><br />
+
+      <button onClick={sumnum}>Add</button>
+
+      {/* using props */}
+      <Result value={r} />
+    </div>
+  );
+}
+
+export default PropsandState;
