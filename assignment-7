@@ -1,0 +1,40 @@
+import { useState } from "react";
+import axios from "axios";
+function Axios_Fetch()
+{
+    // let [arr,setArr]=useState([{id:1,name:"abcs"},{id:1,name:"abcs"}]);//destructure array
+
+    let [arr,setArr]=useState([]);
+    async function getdata()
+    {
+       let res=await axios.get("https://jsonplaceholder.typicode.com/todos");//AXIOS 
+       let data=res.data;
+       console.log(data);
+       setArr([...data]);
+    }
+
+    return (
+        <>
+        <button onClick={()=>getdata()}>Fetch App</button>
+        <h3>Received data is:-</h3>
+        {arr.length==0?"not data available":<table>
+            <tr>
+           {Object.keys(arr[0]).map((key) => <th>{key}</th>)}
+            </tr>
+            <tr>
+            {/* {arr.map((obj)=>({Object.values(obj).map((x)=>{return <td>{x}</td>}))</tr>})}; */}
+             {arr.map((obj) => {
+                        return (
+                            <tr>
+                                {Object.values(obj).map((x) => {
+                                    return <td>{x}</td>;
+                                })}
+                            </tr>
+                        );
+                    })}
+            </tr>
+        </table>}
+        </>
+    )
+}
+export default Axios_Fetch;
